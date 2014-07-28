@@ -1,0 +1,38 @@
+<% @page_title = "Home" %>
+<html lang="en">
+  <head>
+  	<meta charset="UTF-8">
+  	<title>Login</title>
+    <%= stylesheet_link_tag "login" %>
+  </head>
+
+  <body>
+
+  	<div id="login-form">
+
+        <h3>Login</h3>
+
+        <fieldset>
+
+            <form action="javascript:void(0);" method="get">
+
+                <input type="text" required value="Name" onBlur="if(this.value=='')this.value='Email'" onFocus="if(this.value=='Name')this.value='' "> <!-- JS because of IE support; better: placeholder="Email" -->
+                <span class="glyphicon glyphicon-briefcase"></span>
+                <input type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' "> <!-- JS because of IE support; better: placeholder="Password" -->
+
+                <input type="submit" value="Login">
+
+                <footer class="clearfix">
+
+                    <p><span class="info">?</span><a href="#">Forgot Password</a></p>
+
+                </footer>
+
+            </form>
+
+        </fieldset>
+
+    </div>
+
+	</body>
+</html>

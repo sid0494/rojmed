@@ -1,0 +1,2 @@
+module HisabHelper
+end
