@@ -8,7 +8,7 @@
 <%  stl = "color:#800000;text-align:center;font-weight:bold" %>
 <% end %>
 <tr class=<%= clr %> style=<%= stl %>>
-	<td><%= trans.date.to_s %></td>
+	<td><%= trans.updated_at.strftime('%d-%b') %></td>
 	<td><%=  user %></td>
 	<td><%= trans.amount %></td>
 	<td><%= trans.details %></td>

@@ -50,7 +50,7 @@
             <li><%= link_to("અંદર ઘલા ! ", {:controller => 'access', :action => 'login'}) %></li> -->
             <% else %>
                 <li class="dropdown">
-                  <%= link_to(raw("#{session[:name]}" +("<b class= 'caret'></b>")), "#", :class => "dropdown", :data => {:toggle=>"dropdown-menu"}) %>
+                  <%= link_to(raw("#{session[:name]} " +("<b class= 'caret'></b>")), "#", :class => "dropdown", :data => {:toggle=>"dropdown-menu"}) %>
                   <ul class="dropdown-menu">
                     <li>
                       <%= link_to("ઢઢો પૂરો થઇ ગયો !", {:controller => 'access', :action => 'logout'}) %>

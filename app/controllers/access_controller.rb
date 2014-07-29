@@ -38,7 +38,7 @@ class AccessController < ApplicationController
   		flash[:notice] = "Login Successfull."
   		redirect_to(:controller => 'hisab', :action => 'index')
   	else
-  		flash[:notice] = "Login failed try again."
+  		flash[:notice] = "df"
   		redirect_to(:action => 'login')  		
   	end
   end

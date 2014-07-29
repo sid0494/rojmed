@@ -16,9 +16,16 @@
 
             <%= form_for(:user, :url => {:action => 'attempt_login'}, :id => 'login_form') do |f| %>
 
-                <%= f.text_field(:name, :placeholder => "Name", :id => 'name', :onblur => "if(this.value=='')this.value='Name'", :onfocus => "if(this.value=='Name')this.value='' ") %><br><br>
+                <%= f.text_field(:name, :placeholder => "Name", :id => 'name', :onblur => "if(this.value=='')this.value='Name'", :onfocus => "if(this.value=='Name')this.value='' ") %>
 
-                <%= f.password_field(:password, :placeholder => "Password", :id => 'password', :onblur => "if(this.value=='')this.value='Password'", :onfocus => "if(this.value=='Name')this.value='' ")  %>
+                <%= f.password_field(:password, :placeholder => "Password", :id => 'password', :onblur => "if(this.value=='')this.value='Password'", :onfocus => "if(this.value=='Name')this.value='' ")  %><br><br>
+
+                <% if flash[:notice] %>
+                  <div class="alert alert-danger fade in" role="alert">
+                  <p><%= flash[:notice] %></p>
+                  </div>
+                <% end %>
+  
                 <%= submit_tag("મને અંદર ઘાલી દે !", :class => "btn btn-lg btn-success btn-block", :onClick => 'return validation(name.value, password.value);') %>
             
             <% end %>
@@ -37,10 +44,10 @@
       function validationmn(name)
       {
         if (name == "Name") {
-          document.getElementById('errmn').innerHTML="You can't leave 'Name' empty.";
+          document.getElementById('error').innerHTML="You can't leave 'Name' empty.";
           return false;
         } else {
-              document.getElementById('errmn').innerHTML="";
+              document.getElementById('error').innerHTML="Hello";
               return true;
             }
         }
@@ -49,10 +56,10 @@
       function validationpwd(password)
       {
         if (password == "Password") {
-          document.getElementById('errpwd').innerHTML="You can't leave 'Password' empty.";
+          document.getElementById('error').innerHTML="You can't leave 'Password' empty.";
           return false;
         }  else {
-          document.getElementById('errpwd').innerHTML="";
+          document.getElementById('error').innerHTML="";
           return true;
         }
       }

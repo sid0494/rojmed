@@ -18,13 +18,11 @@
 
                 <%= f.collection_select(:receiver, User.all_except(session[:name]), :name, :name, {}, {:class => 'btn btn-default dropdown-toggle btn-block'}) %><br>
 
-                <%= f.date_select(:date, {:order => [:day ,:month], :start_year => 2014}, {:class => 'btn btn-default dropdown-info', :style => "width: 128px"}) %><br><br>
-
                 <%= f.text_field(:amount, :placeholder => "Amount", :id => 'amount')%><br><br>
 
                 <%= f.text_field(:details, :placeholder => "Details", :id => 'details')%>
 
-                <%= submit_tag("અાભાર ! હવે વેતો થા ઢઢુંડા", :class => "btn btn-lg btn-info btn-block", :onClick => 'return validation(name.value, password.value);') %>
+                <%= submit_tag("અાભાર ! હવે હેડતીનો થા ઢઢુંડા", :class => "btn btn-lg btn-info btn-block", :onClick => 'return validation(name.value, password.value);') %>
             
             <% end %>
 

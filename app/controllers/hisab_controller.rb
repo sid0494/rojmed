@@ -15,7 +15,7 @@ class HisabController < ApplicationController
   	if session[:name].blank?
   			redirect_to ('/access/login')
   	else
-  		@transactions = Transaction.where("lender = '#{session[:name]}' OR receiver = '#{session[:name]}'").order(updated_at: :desc)
+  		@transactions = Transaction.where("lender = '#{session[:name]}' OR receiver = '#{session[:name]}'").order("updated_at DESC")
 
   		render "get_transactions"
   	end
@@ -41,7 +41,7 @@ class HisabController < ApplicationController
   	@transaction.receiver = hash[:receiver]
   	@transaction.amount = hash[:amount]
   	@transaction.details = hash[:details]
-  	@transaction.date  = "#{hash["date(1i)"]}-#{hash["date(2i)"]}-#{hash["date(3i)"]} 00:00:00".to_time
+  	#@transaction.date  = "#{hash["date(1i)"]}-#{hash["date(2i)"]}-#{hash["date(3i)"]}
   	 
   	if @transaction.save
   		redirect_to ('/')
