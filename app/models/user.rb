@@ -3,23 +3,34 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessor :password
 
+  has_many :transactions
+
   before_save :create_hashed_password
   after_save :erase_password
+
+  def self.all_except(user_name="")
+    
+    if name != nil
+    users = User.all - [User.find_by_name(user_name)]
+    end
+    return users
+
+  end
 
   private
 
   def create_hashed_password
   	
   	unless password.blank?
-  		self.salt = AdminUser.create_salt(self.first_name) if salt.blank?
-  		self.hashed_password = AdminUser.create_hashed_password(password, salt)
+  		self.salt = User.create_salt(self.name) if salt.blank?
+  		self.hashed_password = User.create_hashed_password(password, salt)
   	end
   end
 
   def self.authenticate_user(name="" , password="")
-  	user = User.find_by_mobile_no(name)
+  	user = User.find_by_name(name)
   	if user
-  		if user.hashed_password == AdminUser.create_hashed_password(password, user.salt)
+  		if user.hashed_password == User.create_hashed_password(password, user.salt)
   			return user
   		end
   	end
@@ -32,6 +43,10 @@ class User < ActiveRecord::Base
 
   def self.create_hashed_password(password="", salt="")
   	Digest::SHA1.hexdigest("The hashed password has #{password} and #{salt}")
+  end
+
+  def erase_password
+    self.password = nil
   end
 
 end

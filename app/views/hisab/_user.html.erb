@@ -1,0 +1,32 @@
+<% @transactions = Transaction.where(:lender => user.name) %>
+<% price = 0 %>
+<% @transactions.each do |x| %>
+<% 	price += x.amount %>
+<% end %>
+<% @transactions = Transaction.where(:receiver => user.name) %>
+<% @transactions.each do |x| %>
+<% 	price -= x.amount %>
+<% end %>
+<% if price < 0 %>
+<% 	clr = "color:#800000;background-color:#f2dede;" %>
+<%  ss = " ડોલર બાકી" %>
+<%  jj = "" %>
+<%  price = price * -1 %>
+<% else %>
+<%  clr = "color:#006600;background-color:#dff0d8;" %>
+<%  jj = " બાપુ" %>
+<%  ss = " ડોલર જમા" %>
+<% end %>
+<div class="col-md-3" >
+<div class="list-item">
+    <div class="list-thumb" style="font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;">
+      <div class="title" style=<%= clr %>>
+        <h4 ><%= user.name + jj%></h4>
+      </div>
+      <img src=<%= "images/" + user.name + ".jpg" %> alt=<%= user.name%> height="220px">
+      <div class="title" style=<%= clr %>>
+        <h4 ><%= price.to_s + ss%></h4>
+      </div>
+    </div>
+</div>
+</div>

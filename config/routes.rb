@@ -1,6 +1,7 @@
 Rojmed::Application.routes.draw do
-  get "hisab/index"
-
+  
+  root :to => "hisab#index"
+  
   get "access/login"
 
   # The priority is based upon order of creation:

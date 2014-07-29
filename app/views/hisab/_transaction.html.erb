@@ -1,0 +1,15 @@
+<% if trans.lender == session[:name] %>
+<% 	clr = "success" %>
+<%  user = trans.receiver %>
+<%  stl = "color:#006600;text-align:center;font-weight:bold" %>
+<% else %>
+<%  clr = "danger"%>
+<%  user = trans.lender %>
+<%  stl = "color:#800000;text-align:center;font-weight:bold" %>
+<% end %>
+<tr class=<%= clr %> style=<%= stl %>>
+	<td><%= trans.date.to_s %></td>
+	<td><%=  user %></td>
+	<td><%= trans.amount %></td>
+	<td><%= trans.details %></td>
+</tr>

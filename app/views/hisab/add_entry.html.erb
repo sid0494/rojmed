@@ -1,0 +1,39 @@
+<% @page_title = "Add Entry" %>
+<html lang="en">
+  <head>
+  	<meta charset="UTF-8">
+  	<title>Login</title>
+    <%= stylesheet_link_tag "login" %>
+  </head>
+
+  <body style="background: #eaeaea; color: #999;">
+
+  	<div id="login-form">
+
+        <h3 style="margin: 0">હવે ઘલાણો તો એન્ટરી કરતો જા </h3>
+
+        <fieldset>
+
+            <%= form_for(:transaction, :url => {:action => 'create_entry'}, :id => 'add_entry_form') do |f| %>
+
+                <%= f.collection_select(:receiver, User.all_except(session[:name]), :name, :name, {}, {:class => 'btn btn-default dropdown-toggle btn-block'}) %><br>
+
+                <%= f.date_select(:date, {:order => [:day ,:month], :start_year => 2014}, {:class => 'btn btn-default dropdown-info', :style => "width: 128px"}) %><br><br>
+
+                <%= f.text_field(:amount, :placeholder => "Amount", :id => 'amount')%><br><br>
+
+                <%= f.text_field(:details, :placeholder => "Details", :id => 'details')%>
+
+                <%= submit_tag("અાભાર ! હવે વેતો થા ઢઢુંડા", :class => "btn btn-lg btn-info btn-block", :onClick => 'return validation(name.value, password.value);') %>
+            
+            <% end %>
+
+        </fieldset>
+
+    </div>
+
+    <div id="footer">
+      <div class="container" >
+          <p class="text-muted"><center style="font-size: 120%"><i>'' બળ હંમેશા તમારી સાથે રહે ''</i> - <b>સિતારા-યુદ્ધ</b></center></p>
+      </div><br>
+    </div>

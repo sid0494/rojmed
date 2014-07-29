@@ -1,0 +1,29 @@
+<div class="col-md-6" style="padding-top: 70px; padding-left: 55px">
+
+  <% if @transactions != nil %>
+
+  <table class="table table-striped" style="table-layout:fixed;padding-top:400px;padding-left:400px;width:1250px;text-align:center">
+    <tr>
+      <th style="text-align:center">કાંડ કાર્ય ની તારીખ</th>
+      <th style="text-align:center">લેતી અથવા દેતી </th>
+      <th style="text-align:center">રોકડ રકમ ડોલર માં, હોં ભૂરા !</th>
+      <th style="text-align:center">ખોટા ટાઇમ-પાસ નું ખાનું</th>
+    </tr>
+    <%= render( :partial => "transaction", :collection => @transactions, :as => :trans) %>
+  </table>
+
+  <% else %>
+
+  <h1> કામ ચાલુ છે હાલતા થાવ ! </h1>
+
+  <% end %>
+
+  <div id="footer" style="padding-top:100px">
+      <div class="container" >
+          <p class="text-muted"><center style="font-size: 120%"><i>'' ઘઅઅઅરરરરરર......! ''</i> - <b>વહાલા ચુબાકા મામા</b></center></p>
+      </div><br>
+</div>
+
+</div>
+
+ 

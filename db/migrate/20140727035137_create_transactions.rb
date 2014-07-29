@@ -5,6 +5,7 @@ class CreateTransactions < ActiveRecord::Migration
     	t.string "lender"
     	t.string "receiver"
     	t.string "details"
+    	t.date "date"
       t.timestamps
     end
   end

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20140727035137) do
     t.string   "lender"
     t.string   "receiver"
     t.string   "details"
+    t.date     "date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

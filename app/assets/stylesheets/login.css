@@ -1,42 +1,5 @@
 @charset "utf-8";
-/* CSS Document */
 
-/* ---------- GENERAL ---------- */
-
-body {
-	background: #eaeaea;
-	color: #999;
-	font: 100%/1.5em sans-serif;
-	margin: 0;
-}
-
-h3 { margin: 0; }
-
-a {
-	color: #999;
-	text-decoration: none;
-}
-
-a:hover { color: #1dabb8; }
-
-fieldset {
-	border: none;
-	margin: 0;
-}
-
-input {
-	border: none;
-	font-family: inherit;
-	font-size: inherit;
-	margin: 0;
-	-webkit-appearance: none;
-}
-
-input:focus {
-  outline: none;
-}
-
-submit_button { cursor: pointer; }
 
 .clearfix { *zoom: 1; }
 .clearfix:before, .clearfix:after {
@@ -48,7 +11,7 @@ submit_button { cursor: pointer; }
 /* ---------- LOGIN-FORM ---------- */
 
 #login-form {
-	margin: 50px auto;
+	margin: 150px auto;
 	width: 300px;
 }
 
@@ -92,8 +55,8 @@ submit_button { cursor: pointer; }
 #login-form input[type="text"],
 #login-form input[type="password"] {
 	border: 1px solid #dcdcdc;
-	padding: 12px 10px;
-	width: 238px;
+	padding: 12px 10px 10px 10px;
+	width: 260px;
 }
 
 #login-form input[type="text"] {
@@ -106,16 +69,12 @@ submit_button { cursor: pointer; }
 }
 
 #login-form input[type="submit"] {
-	background: #1dabb8;
 	border-radius: 3px;
-	color: #fff;
 	float: right;
 	font-weight: bold;
 	margin-top: 20px;
 	padding: 12px 20px;
 }
-
-#login-form input[type="submit"]:hover { background: #198d98; }
 
 #login-form footer {
 	font-size: 12px;

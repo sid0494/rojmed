@@ -10,16 +10,16 @@
 
   	<div id="login-form">
 
-        <h3 style="margin: 0">અંદર ઘલા !</h3>
+        <h3 style="margin: 0">પેલી વાર અંદર ઘલા !</h3>
 
         <fieldset>
 
-            <%= form_for(:user, :url => {:action => 'attempt_login'}, :id => 'login_form') do |f| %>
+            <%= form_for(:user, :url => {:action => 'create'}, :id => 'login_form') do |f| %>
 
                 <%= f.text_field(:name, :placeholder => "Name", :id => 'name', :onblur => "if(this.value=='')this.value='Name'", :onfocus => "if(this.value=='Name')this.value='' ") %><br><br>
 
                 <%= f.password_field(:password, :placeholder => "Password", :id => 'password', :onblur => "if(this.value=='')this.value='Password'", :onfocus => "if(this.value=='Name')this.value='' ")  %>
-                <%= submit_tag("મને અંદર ઘાલી દે !", :class => "btn btn-lg btn-success btn-block", :onClick => 'return validation(name.value, password.value);') %>
+                <%= submit_tag("લે ઘલાય જા ! :P", :class => "btn btn-lg btn-success btn-block", :onClick => 'return validation(name.value, password.value);') %>
             
             <% end %>
 
@@ -29,7 +29,7 @@
 
     <div id="footer">
       <div class="container" >
-          <p class="text-muted"><center style="font-size: 200%"><i>ડાર્ક-સાઇડમાં તમારું સ્વાગત છે !</i></center></p>
+          <p class="text-muted"><center style="font-size: 200%"><i>ડાર્ક-સાયઇમાં તમારું સ્વાગત છે !</i></center></p>
       </div><br>
     </div>
 

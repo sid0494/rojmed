@@ -1,2 +1,22 @@
-<h1>Hisab#index</h1>
-<p>Find me in app/views/hisab/index.html.erb</p>
+<% @page_title = "Home" %>
+<html lang="en">
+  <head>
+    <%= stylesheet_link_tag "template" %>
+  </head>
+
+  <body>
+
+  <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
+    <div class="row" >
+      <%= render( :partial => "user", :collection => @users, :as => :user) %>
+    </div>
+  </div>
+
+  <div id="footer">
+      <div class="container" >
+          <p class="text-muted"><center style="font-size: 120%"><i>'' તારા બાપા કોણ છે ? ''</i> - <b>દશરથ વદર કાકા </b></center></p>
+      </div><br>
+    </div>
+
+  </body>
+</html>
