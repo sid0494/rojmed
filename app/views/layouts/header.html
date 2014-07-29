@@ -33,7 +33,7 @@
             <li><%= link_to("મારા વહીવટો", {:controller => 'hisab', :action => 'get_transactions'}) %></li>
             <li><%= link_to("એન્ટ્રી કર !", {:controller => 'hisab', :action => 'add_entry'}) %></li>
             <% if(session[:user_id] == nil) %>
-            <!-- Remove this after everybody has registered.... :) -->
+            <!-- Remove this after everybody has registered.... :) 
              <li class="dropdown">
                   <%= link_to(raw("અંદર ઘલા ! " +("<b class= 'caret'></b>")), "#", :class => "dropdown", :data => {:toggle=>"dropdown-menu"}) %>
                   <ul class="dropdown-menu">
@@ -44,10 +44,10 @@
                       <%= link_to("પેલી વાર અંદર ઘલા", {:controller => 'access', :action => 'new'}) %>
                     </li>
                   </ul>
-                </li>
-                <!-- Stop Here and remove commments from below:
+                </li> -->
+                <!-- Stop Here and remove commments from below:-->
 
-            <li><%= link_to("અંદર ઘલા ! ", {:controller => 'access', :action => 'login'}) %></li> -->
+            <li><%= link_to("અંદર ઘલા ! ", {:controller => 'access', :action => 'login'}) %></li>
             <% else %>
                 <li class="dropdown">
                   <%= link_to(raw("#{session[:name]} " +("<b class= 'caret'></b>")), "#", :class => "dropdown", :data => {:toggle=>"dropdown-menu"}) %>

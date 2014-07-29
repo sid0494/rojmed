@@ -16,11 +16,17 @@
 
             <%= form_for(:transaction, :url => {:action => 'create_entry'}, :id => 'add_entry_form') do |f| %>
 
-                <%= f.collection_select(:receiver, User.all_except(session[:name]), :name, :name, {}, {:class => 'btn btn-default dropdown-toggle btn-block'}) %><br>
+                <%= f.collection_select(:receiver, User.all_except(session[:name]), :name, :name, {}, {:class => 'btn btn-default dropdown-toggle btn-block', :style => "height:44px;"}) %><br>
 
-                <%= f.text_field(:amount, :placeholder => "Amount", :id => 'amount')%><br><br>
+                <%= f.number_field(:amount, :placeholder => "Amount", :id => 'amount', in: 1...10000, :style => "width:260px;height:44px")%><br><br>
 
-                <%= f.text_field(:details, :placeholder => "Details", :id => 'details')%>
+                <%= f.text_field(:details, :placeholder => "Details", :id => 'details')%><br><br>
+
+                <% if flash[:notice] %>
+                  <div class="alert alert-danger fade in" role="alert">
+                  <p><%= flash[:notice] %></p>
+                  </div>
+                <% end %>
 
                 <%= submit_tag("અાભાર ! હવે હેડતીનો થા ઢઢુંડા", :class => "btn btn-lg btn-info btn-block", :onClick => 'return validation(name.value, password.value);') %>
             

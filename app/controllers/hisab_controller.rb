@@ -41,12 +41,19 @@ class HisabController < ApplicationController
   	@transaction.receiver = hash[:receiver]
   	@transaction.amount = hash[:amount]
   	@transaction.details = hash[:details]
-  	#@transaction.date  = "#{hash["date(1i)"]}-#{hash["date(2i)"]}-#{hash["date(3i)"]}
-  	 
-  	if @transaction.save
-  		redirect_to ('/')
-  	else
-  		logger.info "Error saving transaction."
-  	end
-  end
+    #@transaction.date  = "#{hash["date(1i)"]}-#{hash["date(2i)"]}-#{hash["date(3i)"]}
+     
+
+    if @transaction.receiver == nil || @transaction.amount == nil || @transaction.details == "Details"
+      flash[:notice] = "Invalid input."
+      redirect_to ('/hisab/add_entry')
+    else 
+      if @transaction.save
+        redirect_to ('/')
+      else
+        flash[:notice] = "Invalid input."
+        redirect_to ('/hisab/add_entry')
+      end
+    end
+  end 	 
 end
