@@ -28,9 +28,6 @@ class HisabController < ApplicationController
   			redirect_to ('/access/login') 
   		else
   			@transaction = Transaction.new
-  			@members = User.all_except
-
-  			render "add_entry"
   		end
   end
 

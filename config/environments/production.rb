@@ -68,6 +68,5 @@ Rojmed::Application.configure do
   config.assets.precompile += %w( template.css )
   config.assets.precompile += %w( bootstrap-theme.min.css )
   config.assets.precompile += %w( bootstrap.min.css )
-  config.assets.precompile += %w( customized.css )
   config.assets.precompile += %w( login.css )
 end

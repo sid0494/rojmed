@@ -14,22 +14,17 @@
 
         <fieldset>
 
-            <%= form_for(:transaction, :url => {:action => 'create_entry'}, :id => 'add_entry_form') do |f| %>
+            <%= form_for(:transaction, :url => {:action => 'create_entry'}, :id => 'add_entry_form', :onSubmit => "disable();") do |f| %>
 
                 <%= f.collection_select(:receiver, User.all_except(session[:name]), :name, :name, {}, {:class => 'btn btn-default dropdown-toggle btn-block', :style => "height:44px;"}) %><br>
 
                 <%= f.number_field(:amount, :placeholder => "Amount", :id => 'amount', in: 1...10000, :style => "width:260px;height:44px")%><br><br>
 
-                <%= f.text_field(:details, :placeholder => "Details", :id => 'details')%><br><br>
+                <%= f.text_field(:details, :placeholder => "Details", :id => 'details', :required => true)%><br><br>
 
-                <% if flash[:notice] %>
-                  <div class="alert alert-danger fade in" role="alert">
-                  <p><%= flash[:notice] %></p>
-                  </div>
-                <% end %>
+                <%= submit_tag("અાભાર ! હવે હેડતીનો થા ઢઢુંડા",:id=>"submit-button", :class => "btn btn-lg btn-info btn-block") %>
 
-                <%= submit_tag("અાભાર ! હવે હેડતીનો થા ઢઢુંડા", :class => "btn btn-lg btn-info btn-block", :onClick => 'return validation(name.value, password.value);') %>
-            
+                <!-- <input class="btn btn-lg btn-info btn-block" name="commit" id="submit-button" type="submit" value="અાભાર ! હવે હેડતીનો થા ઢઢુંડા" onclick="disable();"> -->
             <% end %>
 
         </fieldset>
@@ -41,3 +36,9 @@
           <p class="text-muted"><center style="font-size: 120%"><i>'' બળ હંમેશા તમારી સાથે રહે ''</i> - <b>સિતારા-યુદ્ધ</b></center></p>
       </div><br>
     </div>
+
+    <script type="text/javascript">
+    function disable() {
+      $("#submit-button").addClass('disabled');
+    }
+    </script>
