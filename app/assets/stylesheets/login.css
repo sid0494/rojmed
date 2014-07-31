@@ -19,7 +19,7 @@
 	background-color: #282830;
 	border-radius: 5px 5px 0 0;
 	color: #fff;
-	font-size: 14px;
+	font-size: 100%;
 	padding: 20px;
 	text-align: center;
 	text-transform: uppercase;
@@ -69,8 +69,7 @@
 }
 
 #login-form input[type="password"] {
-	border-top: none;
-	border-radius: 0px 0px 3px 3px;
+	border-radius: 3px 3px 0 0;
 }
 
 #login-form input[type="submit"] {

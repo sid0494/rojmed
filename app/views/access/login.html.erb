@@ -16,7 +16,7 @@
 
             <%= form_for(:user, :url => {:action => 'attempt_login'}, :id => 'login_form') do |f| %>
 
-                <%= f.text_field(:name, :placeholder => "Name", :id => 'name', :onblur => "if(this.value=='')this.value='Name'", :onfocus => "if(this.value=='Name')this.value='' ") %>
+                <%= f.text_field(:name, :placeholder => "Name", :id => 'name', :onblur => "if(this.value=='')this.value='Name'", :onfocus => "if(this.value=='Name')this.value='' ") %><br><br>
 
                 <%= f.password_field(:password, :placeholder => "Password", :id => 'password', :onblur => "if(this.value=='')this.value='Password'", :onfocus => "if(this.value=='Name')this.value='' ")  %><br><br>
 

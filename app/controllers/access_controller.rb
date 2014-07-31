@@ -49,4 +49,25 @@ class AccessController < ApplicationController
 		flash[:notice] = "Logged out successfully."
 		redirect_to(:action => "login")
 	end
+
+  def change_password_form
+  end
+
+  def change_password
+    
+    current_user = User.authenticate_user(session[:name], params[:old_pwd])
+
+    if current_user
+      current_user.password = params[:new_pwd]
+      if current_user.save
+        redirect_to ('/')
+      else
+        flash[:notice] = "Changing password failed. Please try again later."
+        redirect_to ('/access/change_password_form')
+      end
+    else
+      flash[:notice] = "Current password is incorrect."
+      redirect_to ('/access/change_password_form')
+    end
+  end
 end
