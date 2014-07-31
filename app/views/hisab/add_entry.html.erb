@@ -14,7 +14,7 @@
 
         <fieldset>
 
-            <%= form_for(:transaction, :url => {:action => 'create_entry'}, :id => 'add_entry_form', :onSubmit => "disable();") do |f| %>
+            <%= form_for(:transaction, :url => {:action => 'create_entry'}, :id => 'add_entry_form', :html => { :onsubmit => 'disable();' }) do |f| %>
 
                 <%= f.collection_select(:receiver, User.all_except(session[:name]), :name, :name, {}, {:class => 'btn btn-default dropdown-toggle btn-block', :style => "height:44px;"}) %><br>
 
