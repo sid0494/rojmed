@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <%= favicon_link_tag 'tab-icon.ico' %>
-    <%= stylesheet_link_tag "bootstrap.min", "bootstrap-theme.min" %>
+    <%= stylesheet_link_tag "bootstrap.min", "bootstrap-theme.min", "login" %>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
   </head>
@@ -28,9 +28,13 @@
           <a class="navbar-brand" href="/">~ ડાર્ક-સાઇડરો નો હિસાબ Portal ~</a>
         </div>
         <div class="navbar-collapse collapse pull-right">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" style="font-size: 14px;">
             <li><%= link_to("મારું  ઘર", {:controller => 'hisab', :action => 'index'}) %></li>
-            <li><%= link_to("મારા વહીવટો", {:controller => 'hisab', :action => 'get_transactions'}) %></li>
+            <% if session[:notification] == 0 %>
+              <li><%= link_to("મારા વહીવટો", {:controller => 'hisab', :action => 'get_transactions'}) %></li>
+            <% else %>
+              <li><%= link_to("મારા વહીવટો (#{session[:notification]})", {:controller => 'hisab', :action => 'get_transactions'}, {:style => "color: white;"}) %></li>
+            <% end %>
             <li><%= link_to("એન્ટરી કર !", {:controller => 'hisab', :action => 'add_entry'}) %></li>
             <% if(session[:user_id] == nil) %>
             <!-- Remove this after everybody has registered.... :) 

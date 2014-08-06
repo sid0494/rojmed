@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140727035137) do
+ActiveRecord::Schema.define(:version => 20140806192338) do
 
   create_table "transactions", :force => true do |t|
     t.integer  "amount"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20140727035137) do
     t.string   "name",            :limit => 20
     t.string   "salt"
     t.string   "hashed_password"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.integer  "notification",                  :default => 0
   end
 
 end
