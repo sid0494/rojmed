@@ -34,7 +34,6 @@ class AccessController < ApplicationController
   	current_user = User.authenticate_user(hash[:name], hash[:password])
   	if current_user
   		session[:user_id] = current_user.id
-      session[:notification] = current_user.notification
   		session[:name] = current_user.name
   		flash[:notice] = "Login Successfull."
   		redirect_to(:controller => 'hisab', :action => 'index')
@@ -46,7 +45,6 @@ class AccessController < ApplicationController
 
   def logout
 		session[:user_id] = nil
-    session[:notification] = 0
 		session[:name] = nil
 		flash[:notice] = "Logged out successfully."
 		redirect_to(:action => "login")
